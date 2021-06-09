@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+const User = require('../models/user');
+
 module.exports = (secret) => (req, resp, next) => {
   const { authorization } = req.headers;
 
@@ -19,28 +21,36 @@ module.exports = (secret) => (req, resp, next) => {
     }
 
     // TODO: Verificar identidad del usuario usando `decodeToken.uid`
+    const userFind = User.findOne({ email: decodedToken.email });
+
+    userFind.then((doc) => {
+      if (doc) {
+        req.authToken = decodedToken;
+
+        console.info('El usuario del token si existe');
+        return next();
+      }
+    });
   });
 };
 
-
 module.exports.isAuthenticated = (req) => (
+  // console.info('isadmin', req.authToken)
+  req.authToken.id
   // TODO: decidir por la informacion del request si la usuaria esta autenticada
-  false
 );
-
 
 module.exports.isAdmin = (req) => (
   // TODO: decidir por la informacion del request si la usuaria es admin
-  false
-);
+  req.authToken.role.admin
 
+);
 
 module.exports.requireAuth = (req, resp, next) => (
   (!module.exports.isAuthenticated(req))
     ? next(401)
     : next()
 );
-
 
 module.exports.requireAdmin = (req, resp, next) => (
   // eslint-disable-next-line no-nested-ternary
