@@ -13,7 +13,12 @@
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["e2e/**/*.js", "**/*.spec.js"]}],
     "no-console": ["error", {
       "allow": ["info", "warn", "error"]
+<<<<<<< HEAD
     }]
     "linebreak-style": 0,
+=======
+    }],
+    "linebreak-style": 0
+>>>>>>> 49ce12a1f4b126b6e372cb38cc338a7a6bc5c65c
   }
 }
