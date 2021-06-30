@@ -1,4 +1,4 @@
-# Burger Queen - API con Node.js
+# 🍔 📳 Burger Queen - API con Node.js
 
 ## Índice
 
@@ -12,7 +12,7 @@
 
 ## 1. Preámbulo
 
-![Node.js logo](https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg)
+![Node.js logo](file:///C:/Users/N20/Downloads/Burger%20Business%20Facebook%20Cover.svg)
 
 Un pequeño restaurante de hamburguesas, que está creciendo, necesita un
 sistema a través del cual puedan tomar pedidos usando una _tablet_, y enviarlos
